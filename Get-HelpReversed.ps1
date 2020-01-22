@@ -88,9 +88,9 @@
 
 <#
 $cs = Get-Command -CommandType Function | ? {$_.ModuleName -eq "Your module"} | ? {-not $_.Definition.Contains("Set-Location") } | ?{ -not @("Clear-Host", "Get-HelpReversed", "Get-Verb", "help", "ImportSystemModules", "mkdir", "oss", "Pause", "prompt", "psEdit", "TabExpansion2").Contains($_.Name)}
-$cs | %{ "Get-HelpReversed '$($_.Name)'" } 
+$cs | %{ "Get-HelpReversed '$($_.Name)' | Set-Clipboard" } 
 
 $cs = Get-Command -CommandType Function | ? {$_.ModuleName -eq ""} | ? {-not $_.Definition.Contains("Set-Location") } | ?{ -not @("Clear-Host", "Get-HelpReversed", "Get-Verb", "help", "ImportSystemModules", "mkdir", "oss", "Pause", "prompt", "psEdit", "TabExpansion2").Contains($_.Name)}
-$cs | %{ "Get-HelpReversed '$($_.Name)'" } 
+$cs | %{ "Get-HelpReversed '$($_.Name)' | Set-Clipboard" } 
 
 #>
